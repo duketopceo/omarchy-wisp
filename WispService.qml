@@ -3,8 +3,8 @@ import Quickshell
 import Quickshell.Io
 import qs.Commons
 
-// DimService — polls the dimd daemon's state.json and exposes it as
-// properties. BarWidget and DimOverlay bind to these; the plugin never
+// WispService — polls the wispd daemon's state.json and exposes it as
+// properties. BarWidget and WispOverlay bind to these; the plugin never
 // holds the IPC socket itself.
 Item {
   id: root
@@ -25,11 +25,11 @@ Item {
   readonly property string stateFile: {
     var rd = Quickshell.env("XDG_RUNTIME_DIR");
     if (!rd || rd.length === 0) rd = "/tmp";
-    return rd + "/dim-agent/state.json";
+    return rd + "/wisp/state.json";
   }
 
   function sendChoice(pick) {
-    choiceProc.command = ["dimd", "choice", pick];
+    choiceProc.command = ["wispd", "choice", pick];
     choiceProc.running = true;
   }
 
@@ -71,6 +71,6 @@ Item {
 
   Process {
     id: choiceProc
-    command: ["dimd", "choice", ""]
+    command: ["wispd", "choice", ""]
   }
 }

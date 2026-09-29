@@ -4,7 +4,7 @@ import Quickshell.Io
 import qs.Commons
 import qs.Ui
 
-// DimOverlay — breathing-dim listening surface for io.github.duketopceo.dim.
+// WispOverlay — breathing-dark listening surface for io.github.duketopceo.wisp.
 // Watches state.json: opens while the daemon is listening/deciding or
 // awaiting a choice, closes when it returns to idle/done/error.
 Item {
@@ -24,7 +24,7 @@ Item {
   readonly property string stateFile: {
     var rd = Quickshell.env("XDG_RUNTIME_DIR");
     if (!rd || rd.length === 0) rd = "/tmp";
-    return rd + "/dim-agent/state.json";
+    return rd + "/wisp/state.json";
   }
 
   function open(payload) { root.opened = true; }
@@ -34,11 +34,11 @@ Item {
     root.close();
     if (root.shell && typeof root.shell.hide === "function")
       root.shell.hide((root.manifest && root.manifest.id)
-                      || "io.github.duketopceo.dim");
+                      || "io.github.duketopceo.wisp");
   }
 
   function sendChoice(pick) {
-    choiceProc.command = ["dimd", "choice", pick];
+    choiceProc.command = ["wispd", "choice", pick];
     choiceProc.running = true;
   }
 
@@ -75,7 +75,7 @@ Item {
 
   Process {
     id: choiceProc
-    command: ["dimd", "choice", ""]
+    command: ["wispd", "choice", ""]
   }
 
   // Breathing darkness: opacity follows mic amplitude (0 = clear, 1 = dark).
@@ -97,7 +97,7 @@ Item {
       anchors.horizontalCenter: parent.horizontalCenter
       text: root.status === "listening" ? "listening…"
           : root.status === "awaiting_choice" ? "which did you mean?"
-          : "Dim"
+          : "Wisp"
       color: root.accent
       font.family: "sans-serif"
       font.pixelSize: 22
