@@ -16,6 +16,7 @@ disconnected/empty state.
 
   ```sh
   git clone https://github.com/duketopceo/wisp
+  git -C wisp checkout 6b7d80114d99e61d0ceb4782d321ec4df96fd593  # wispd v0.9.0
   cd wisp && python3 wispd install
   systemctl --user enable --now wispd
   ```
