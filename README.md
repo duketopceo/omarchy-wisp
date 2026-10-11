@@ -7,7 +7,7 @@
 
 <p align="center"><b>A small light in your Omarchy bar that listens, thinks, and points at what it is doing.</b></p>
 
-omarchy-wisp is the [Omarchy](https://learn.omacom.io/2/the-omarchy-manual) shell plugin for [Wisp](https://github.com/duketopceo/wisp), a voice companion for Hyprland. Press `Super+D`, speak, and the plugin shows the state: a bar mark, a creature, a listening pill, an answer bubble beside your cursor, a ghost cursor that travels to targets, and a panel. Colours, corner rounding and font come from your active Omarchy theme.
+omarchy-wisp is the [Omarchy](https://learn.omacom.io/2/the-omarchy-manual) shell plugin for [Wisp](https://github.com/duketopceo/wisp), a voice companion for Hyprland. Press `Super+D`, speak, and the plugin shows the state: a bar mark, a creature, a listening pill, an answer bubble beside your cursor, a ghost cursor that travels to targets, and a panel (Now, Agents, Memory, Settings). Colours, corner rounding and font come from your active Omarchy theme.
 
 > **Needs `wispd`.** This repository holds only the Quickshell plugin. It draws the state that the [wispd](https://github.com/duketopceo/wisp) daemon writes; without the daemon it shows a disconnected state.
 
