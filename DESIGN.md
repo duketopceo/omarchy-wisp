@@ -56,13 +56,13 @@ Runtime source of truth is `lib/tokens.js` (derive from `colors.toml` and `shell
 | `keyline` | 1px chrome border | `#666666` | 3.66 | `#9f9d96` | 2.64 |
 | `ember` | the Wisp, ghost, mic meter | `#e58a4b` | 8.07 | `#205ea6` | 6.36 |
 | `emberCore` / `emberWick` | creature core and tail | `#ffaa6b` / `#c36b29` | | `#3f7cc7` / `#004186` | |
-| `needsYou` | awaiting the user | `#e5c07b` | 12.16 | `#b68900` | 3.11 |
-| `fail` | error only | `#e06c75` | 6.57 | `#d14d41` | 4.21 |
-| `ok` | brief success | `#98c379` | 10.42 | `#879a39` | 3.04 |
+| `needsYou` | awaiting the user | `#e5c07b` | 12.16 | `#976b00` | 4.62 |
+| `fail` | error only | `#e06c75` | 6.57 | `#ca463b` | 4.59 |
+| `ok` | brief success | `#98c379` | 10.42 | `#6a7c11` | 4.54 |
 
 AA findings (upstream should fix; recorded here, not changed):
 - Dark fixture passes AA text (4.5:1) for every text token. Keyline 3.66:1 passes the 3:1 non-text bar.
-- Light fixture: `fail` 4.21:1 is below 4.5 as text, `needsYou` 3.11 and `ok` 3.04 pass only as non-text indicators (3:1) and must never carry text without an icon and word. Keyline 2.64:1 is decorative, so state must not depend on it alone (`DESIGN-v2.md` 7 already requires an `emberHalo` ring at 3:1).
+- Light fixture: since wisp #114 the status tokens lift to 4.5:1 on the page background (`needsYou` 4.62, `fail` 4.59, `ok` 4.54 on `#FFFCF0`). On the raised surface `#F2F0E5` they measure about 4.1:1, so status text there still needs the icon and word alongside it. Keyline 2.64:1 is decorative, so state must not depend on it alone (`DESIGN-v2.md` 7 already requires an `emberHalo` ring at 3:1).
 - Static brand colours: see `assets/brand/README.md` (mark 4.47:1 on white; wordmark 17.1:1).
 
 Type: `Style.font.family` (monospace alias), sizes `answer 13`, `body 12`, `label 11`, `caption 10`, `title 14` weight 600 (wisp 5.3). Heard transcript is not italic. Spacing from `Style.spacing.*` only.
